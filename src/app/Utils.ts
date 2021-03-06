@@ -1,5 +1,12 @@
-const toUppercase = (string) => {
-    return string.toUpperCase()
+import { UrlWithParsedQuery, parse } from "url";
+
+export const toUppercase = (str:string): string => {
+    return str.toUpperCase();
 }
 
-module.exports = {toUppercase}
+export const parseUrl = (url:string):UrlWithParsedQuery => {
+    if (!url){
+        throw new Error('Empty url!');
+    }
+    return parse(url, true);
+}
